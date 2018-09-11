@@ -12,13 +12,16 @@
     <br/>
     <br/>
     <a href="https://chrome.google.com/webstore/detail/berrywallet/boidgcdefidhoojfljngigkjffbodjmn" title="Chrome Web Store">
+        <img src="https://github.com/berrywallet/berrywallet-extension/raw/master/docs/extension-preview.gif" title="Berrywalet Extention" />
+    </a>
+    <br/>
+    <br/>
+    <a href="https://chrome.google.com/webstore/detail/berrywallet/boidgcdefidhoojfljngigkjffbodjmn" title="Chrome Web Store">
         <img src="https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_206x58.png" />
     </a>
     <a href="https://addons.mozilla.org/firefox/addon/berrywallet" title="Mozilla Add-on">
         <img src="https://github.com/berrywallet/berrywallet-extension/blob/master/docs/mozzila-addon-button.png?raw=true" />
     </a>
-    <br/><br/>
-    <img src="https://github.com/berrywallet/berrywallet-extension/raw/master/docs/extension-preview.gif" />
   </p>
 </p>
 
@@ -53,7 +56,8 @@ Security and convenience are the two cores of our ideology. To achieve this we w
  - PIN feature for extra security
  - Spendable balance display
  - Multi-currency
- - Instant conversion between BTC/ETH/DASH/LTC via shapeshift
+ - SegWit for Bitcoin and Litecoin
+ - Instant conversion between BTC/ETH/DASH/LTC via ShapeShift
  - Mining Fee selection
  - Real-time fees based on up-to-date network statistics
  - Single Screen Interface (you won’t need to switch between screens or wallets ever again)
