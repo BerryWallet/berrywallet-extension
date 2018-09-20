@@ -4,7 +4,7 @@ import { HD, Wallet } from '@berrywallet/core';
 import { IStore } from 'Core/Declarations/Store';
 import { createBeShapy, BeShapyClient, BeShapyUnits } from 'be-shapy';
 import { Controller } from 'Core/Actions';
-import { AbstractController } from 'Background/Service/AbstractController';
+import { AbstractController } from 'Background/service/abstract-controller';
 import { WalletController } from './wallet-controller';
 
 import { Analytics } from 'Popup/Service';

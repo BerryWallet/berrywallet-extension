@@ -5,12 +5,15 @@
     "description": "__MSG_description__",
     "default_locale": "en",
     "author": "https://berrywallet.io",
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "content_security_policy": "script-src 'self' 'unsafe-eval' https://www.gstatic.com https://cdn.firebase.com https://*.firebaseio.com; object-src 'self'",
     "permissions": [
         "tabs",
         "storage",
+        "background",
+        "clipboardRead",
         "notifications",
         "clipboardWrite",
+        "identity",
         "http://*/*",
         "https://*/*"
     ],
@@ -36,7 +39,9 @@
     },
     "background": {
         "persistent": true,
-        "page": "/views/background.html"
+        "scripts": [
+            "/js/background.js"
+        ]
     },
     "applications": {
         "gecko": {

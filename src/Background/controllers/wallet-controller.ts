@@ -1,13 +1,13 @@
 import { includes, each, Dictionary } from 'lodash';
-import { Store } from 'redux';
 import BigNumber from 'bignumber.js';
-import { WalletManager } from 'Background/Service/WalletManager';
+import { Store } from 'redux';
+import { WalletManager } from 'Background/service/wallet-manager';
 import { Actions, Coins } from 'Core';
 import { IStore } from 'Core/Declarations/Store';
 import { ICoinWallet } from 'Core/Declarations/Wallet';
-import { AbstractController } from 'Background/Service/AbstractController';
-import { KeyringController } from './KeyringController';
-import { WalletManagerGenerator } from 'Background/Service/WalletManager/WalletManagerGenerator';
+import { AbstractController } from 'Background/service/abstract-controller';
+import { KeyringController } from './keyring-controller';
+import { WalletManagerGenerator } from 'Background/service/wallet-manager/WalletManagerGenerator';
 
 interface CreateTransactionPayload {
     coinKey: Coins.CoinSymbol;
@@ -53,9 +53,6 @@ export class WalletController extends AbstractController {
         return 'WALLET';
     }
 
-    /**
-     * @returns {KeyringController}
-     */
     protected getKeyringController(): KeyringController {
         return this.getApp().get("KEYRING") as KeyringController;
     }

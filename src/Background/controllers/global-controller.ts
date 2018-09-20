@@ -1,7 +1,7 @@
 import { Store } from 'redux';
 import { IStore } from 'Core/Declarations/Store';
 import { Reducer, Controller } from 'Core/Actions';
-import { AbstractController } from 'Background/Service/AbstractController';
+import { AbstractController } from 'Background/service/abstract-controller';
 import { WalletController } from './wallet-controller';
 
 export class GlobalController extends AbstractController {

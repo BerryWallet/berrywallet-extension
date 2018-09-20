@@ -1,7 +1,7 @@
 import { Store } from 'redux';
 import { each, find } from 'lodash';
 import createClient, { IBerryMarketCap, ITickerData } from 'berrymarketcap';
-import { AbstractController } from "Background/Service/AbstractController";
+import { AbstractController } from "Background/service/abstract-controller";
 import { IStore } from 'Core/Declarations/Store';
 import { CoinAction } from 'Core/Actions/Reducer';
 import { coinList, CoinInterface, TickerData, FiatSymbol } from 'Core/Coins';

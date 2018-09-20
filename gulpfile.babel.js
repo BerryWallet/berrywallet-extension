@@ -45,6 +45,15 @@ gulp.task('copy:views', copyTask({
     ]
 }));
 
+gulp.task('copy:firebase-js', copyTask({
+    source: './src',
+    pattern: '/firebase-messaging-sw.js',
+    destinations: [
+        './dist/firefox/',
+        './dist/chrome/'
+    ]
+}));
+
 gulp.task('copy:builds:js', copyTask({
     source: './dist/chrome/js',
     destinations: [
@@ -57,7 +66,9 @@ gulp.task('copy:builds:css', copyTask({
         './dist/firefox/css'
     ]
 }));
+
 gulp.task('copy:builds', ['copy:builds:css', 'copy:builds:js']);
+
 
 gulp.task('manifest:firefox', () => {
     return extractManifest()
@@ -77,10 +88,17 @@ gulp.task('manifest:chrome', () => {
 
 gulp.task('manifest', ['manifest:chrome', 'manifest:firefox']);
 
-const staticFiles = ['images', 'views', 'locales', 'builds'];
+gulp.task('web-manifest', () => {
+    return extractWebManifest()
+        .pipe(gulp.dest('./dist/chrome', {overwrite: true}))
+        .pipe(gulp.dest('./dist/firefox', {overwrite: true}));
+});
+
+const staticFiles = ['images', 'views', 'firebase-js', 'locales', 'builds'];
 let copyStrings = staticFiles.map(staticFile => `copy:${staticFile}`);
 gulp.task('copy', [
     ...copyStrings,
+    'web-manifest',
     'manifest'
 ]);
 
@@ -88,15 +106,19 @@ gulp.task('clean', function clean() {
     return del(['./dist/*']);
 });
 
+
 gulp.task('build', ['copy']);
+
 
 gulp.task('copy:watch', function () {
     gulp.watch(['./src/*.*'], 'build');
 });
 
+
 gulp.task('zip:chrome', zipTask('chrome'));
 gulp.task('zip:firefox', zipTask('firefox', 'xpi'));
 gulp.task('zip', ['zip:chrome', 'zip:firefox']);
+
 
 function copyTask(opts) {
     const {
@@ -112,7 +134,7 @@ function copyTask(opts) {
             stream = stream.pipe(gulp.dest(destination))
         });
 
-        return stream
+        return stream;
     }
 }
 
@@ -130,13 +152,22 @@ function zipTask(target, ext = 'zip') {
 function extractManifest() {
     const packageJson = require('./package.json');
 
-    const baseManifestPipe = jsoneditor((json) => {
+    const baseManifestPipe = (json) => {
         json.version = packageJson.version;
 
         delete json.content_scripts;
 
         return json;
-    });
+    };
 
-    return gulp.src('./resources/manifest.json').pipe(baseManifestPipe);
+    return gulp.src('./resources/manifest.json').pipe(jsoneditor(baseManifestPipe));
+}
+
+
+function extractWebManifest() {
+    const baseManifestPipe = (json) => {
+        return json;
+    };
+
+    return gulp.src('./resources/web-manifest.json').pipe(jsoneditor(baseManifestPipe));
 }

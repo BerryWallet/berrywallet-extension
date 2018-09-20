@@ -1,11 +1,11 @@
-import { NeedPasswordError } from "../Errors";
+import { NeedPasswordError } from '../Errors';
 
 import BIP39 from 'bip39';
 import { Store } from 'redux';
 import { IStore } from 'Core/Declarations/Store';
 import { KeyringEvent } from 'Core/Actions/Controller';
 import { KeyringAction } from 'Core/Actions/Reducer';
-import { AbstractController } from 'Background/Service/AbstractController';
+import { AbstractController } from 'Background/service/abstract-controller';
 
 import {
     VaultDataInterface,

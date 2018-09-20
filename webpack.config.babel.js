@@ -83,7 +83,7 @@ function getScssLoader() {
                 options: {
                     data: `@import "common.scss";`,
                     includePaths: [
-                        Path.resolve(__dirname, './src/Style')
+                        Path.resolve(__dirname, './src/style')
                     ]
                 }
             }],
@@ -154,7 +154,7 @@ const WebpackConfig = {
     },
 
     resolve: {
-        extensions: ['.md', ".svg", ".ts", ".tsx", ".js", ".jsx", ".json"],
+        extensions: ['.md', '.svg', '.ts', '.tsx', '.js', '.jsx', '.json'],
         modules: [
             PATH.SOURCE,
             Path.resolve(__dirname, './node_modules')
@@ -166,7 +166,7 @@ const WebpackConfig = {
 
             'be-shapy': Path.join(__dirname, 'src/be-shapy'),
 
-            Style: Path.join(__dirname, 'src/Style'),
+            style: Path.join(__dirname, 'src/style'),
             svg: Path.join(__dirname, 'src/svg'),
             resources: Path.resolve(process.cwd(), 'resources'),
         }

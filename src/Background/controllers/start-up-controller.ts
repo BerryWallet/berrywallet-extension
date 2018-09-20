@@ -1,11 +1,11 @@
-import {Store} from "redux";
+import {Store} from 'redux';
 
-import {IStore, IWelcomeStore} from "Core/Declarations/Store";
+import {IStore, IWelcomeStore} from 'Core/Declarations/Store';
 import {StartUpEvent} from 'Core/Actions/Controller';
 import {GlobalAction, WelcomeAction, KeyringAction} from 'Core/Actions/Reducer';
-import {generateSeedVault} from "Core/Service/SeedVault";
-import {AbstractController} from 'Background/Service/AbstractController'
-import {KeyringController, WalletController} from "Background/Controllers";
+import {generateSeedVault} from 'Core/Service/SeedVault';
+import {AbstractController} from 'Background/service/abstract-controller'
+import {KeyringController, WalletController} from "Background/controllers";
 
 export class StartUpController extends AbstractController {
     

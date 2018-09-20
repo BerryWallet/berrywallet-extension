@@ -1,7 +1,7 @@
 import { Wallet } from '@berrywallet/core';
 import { Coins, createDebugger, Actions, Wallet as CoreWallet } from 'Core';
 import { NeedPasswordError } from 'Background/Errors';
-import { WalletController } from 'Background/Controllers';
+import { WalletController } from 'Background/controllers';
 import { WalletManager } from './';
 
 export interface IWalletManagerGenerator {
